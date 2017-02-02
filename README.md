@@ -6,7 +6,7 @@ Demo project using Spring boot and mongodb
 
 This is a small demo application to show the GET and POST requests for getiing product details and updateing product details respectively. Using  [Spring Boot](http://projects.spring.io/spring-boot/)
 application and Mongodb on [Heroku](http://heroku.com). For more information see the Dev Center article on 
-[Deploying Spring Boot Applications to Heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku).
+[Deploying Demo project using Spring boot and mongod to Heroku](https://dashboard.heroku.com/apps/myretailonline).
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
