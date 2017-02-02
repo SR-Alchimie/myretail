@@ -125,28 +125,6 @@ class ProductServiceImpl implements ProductService {
 		}
 		return product;
 	}
-	//
-	// /*
-	// * (non-Javadoc)
-	// *
-	// * @see com.myretail.product.ProductService#delete(java.lang.String)
-	// */
-	// public Product delete(final long productId) {
-	//
-	// ApplicationContext appContext = new
-	// AnnotationConfigApplicationContext(SpringMongoConfig.class);
-	// MongoOperations mongoOperation = (MongoOperations)
-	// appContext.getBean("mongoTemplate");
-	//
-	// Query query = new Query();
-	// query.addCriteria(Criteria.where("productId").is(productId));
-	//
-	// Product deletedProduct = mongoOperation.findAndRemove(query,
-	// Product.class);
-	// logger.debug("Deleted document : " + deletedProduct.toString());
-	//
-	// return deletedProduct;
-	// }
 
 	/*
 	 * (non-Javadoc)
