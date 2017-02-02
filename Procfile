@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* -Dserver.port=$PORT com/myretail/ProductRestApplication
+web:    java -Dserver.port=$PORT $JAVA_OPTS -jar myretail-0.0.1-SNAPSHOT.jar
