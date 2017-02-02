@@ -31,7 +31,7 @@ import com.myretail.product.exception.ProductServiceException;
 public class ProductRestController {
 
 	@Autowired
-	private ProductService productService = null;
+	private ProductService productService;
 
 	/** The logger. */
 	static Logger logger = LoggerFactory.getLogger(ProductRestController.class.getName());
