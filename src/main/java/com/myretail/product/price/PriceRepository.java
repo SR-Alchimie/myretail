@@ -18,12 +18,4 @@ public interface PriceRepository extends MongoRepository<Price, String> {
 	 */
 	public Price findByProductId(long id);
 
-	/**
-	 * Find by value.
-	 *
-	 * @param value the value
-	 * @return the list
-	 */
-	public List<Price> findByValue(float value);
-
 }
