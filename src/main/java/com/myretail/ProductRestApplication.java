@@ -2,15 +2,12 @@ package com.myretail;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import com.myretail.product.ProductService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -24,10 +21,6 @@ public class ProductRestApplication implements CommandLineRunner {
 
 	/** The logger. */
 	static Logger logger = LoggerFactory.getLogger(ProductRestApplication.class.getName());
-
-	/** The product service. */
-	@Autowired
-	private ProductService productService;
 
 	/**
 	 * The main method.
@@ -50,12 +43,7 @@ public class ProductRestApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		try {
-			logger.debug(productService.getByProductId(13860428).toString());
-		} catch (Exception exce) {
-
-		}
-
+		logger.debug("Inside  productRestApplication");
 		// repository.deleteAll();
 
 		// save a couple of customers
@@ -68,7 +56,7 @@ public class ProductRestApplication implements CommandLineRunner {
 		// repository.save(new Product(15643793,"Six"));
 
 		// fetch all customers
-		// System.out.println("Customers found with findAll():");
+		// System.out.println("Inside productRestApplication");
 		// System.out.println("-------------------------------");
 		// for (Product product : repository.findAll()) {
 		// System.out.println(product);
