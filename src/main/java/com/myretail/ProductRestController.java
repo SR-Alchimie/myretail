@@ -28,6 +28,7 @@ import com.myretail.product.exception.PriceServiceException;
 import com.myretail.product.exception.ProductServiceException;
 
 @RestController
+@RequestMapping(value = "/api/v1/products*", method = RequestMethod.GET)
 public class ProductRestController {
 
 	@Autowired
@@ -50,7 +51,7 @@ public class ProductRestController {
 	 *            the id
 	 * @return the product
 	 */
-	@RequestMapping(value = "/api/v1/products/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	Product getProduct(@PathVariable String id) {
 		Product objProduct = null;
 		logger.debug("get product details for the product id - " + id);
@@ -59,7 +60,7 @@ public class ProductRestController {
 		return objProduct;
 	}
 
-	@RequestMapping(value = "/api/v1/products", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	Product create(@RequestBody Product pProduct) {
 
 		validateProductId(String.valueOf(pProduct.getProductId()));

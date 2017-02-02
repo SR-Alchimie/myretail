@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.product.search</groupId>
-	<artifactId>ProductSearch</artifactId>
+	<groupId>com.myretail.product</groupId>
+	<artifactId>myretail</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ProductSearch</name>
-	<description>Rest Product Search API demo project for Spring Boot</description>
+	<name>MyRetail</name>
+	<description>Rest Product lookup API demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
