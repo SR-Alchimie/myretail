@@ -1,0 +1,9 @@
+{
+  "name": "MyRetail Product APis",
+  "description": "This is a small demo application for showing how to get and post data in Spring Boot application and using Mondodb database on Heroku.",
+  "repository": "https://github.com/SR-Alchimie/myretail",
+  "image": "heroku/java",
+  "addons": [
+    "mongolab:shared-single-small"
+  ]
+}
