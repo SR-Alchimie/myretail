@@ -4,6 +4,4 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="productService" class="com.myretail.product.ProductService" />
-	<bean id="priceService" class="com.myretail.product.price.PriceService" />
-
 </beans>
