@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,6 +18,12 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 public class ProductRestApplication implements CommandLineRunner {
 
+	
+	@RequestMapping("/")
+	public String home(){
+		return "Hello World!";
+	}
+	
 	/** The logger. */
 	static Logger logger = LoggerFactory.getLogger(ProductRestApplication.class.getName());
 
