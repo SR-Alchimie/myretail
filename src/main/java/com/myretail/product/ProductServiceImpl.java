@@ -19,7 +19,7 @@ import com.myretail.product.price.PriceService;
  * 
  */
 @Service
-@Resource(name = "v1")
+// @Resource(name = "v1")
 class ProductServiceImpl implements ProductService {
 
 	/** The logger. */
