@@ -18,7 +18,7 @@ public class Product {
 	public String id;
 
 	@JsonProperty("id")
-	@Indexed(unique = true)
+	// @Indexed(unique = true)
 	public long productId;
 
 	/** The name. */
