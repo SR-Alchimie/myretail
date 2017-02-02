@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myretail.product.exception.ProductServiceException;
+import com.myretail.repository.PriceRepository;
 import com.myretail.resource.Messages;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PriceServiceImpl.
  */
@@ -21,7 +21,9 @@ public class PriceServiceImpl implements PriceService {
 	@Autowired
 	Messages priceMessages;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.myretail.product.price.PriceService#getPrice(long)
 	 */
 	public Price getPrice(long id) {
@@ -40,7 +42,7 @@ public class PriceServiceImpl implements PriceService {
 				objPrice.setCurrency_code(getCurrencyCodeBasedOnLocal());
 			} else {
 				System.out.println("Product not found");
-				throw new ProductServiceException("Product id not found " +id );
+				throw new ProductServiceException("Product id not found " + id);
 			}
 		} catch (NumberFormatException numException) {
 			throw new NumberFormatException("Product id has to be a number");
@@ -48,8 +50,12 @@ public class PriceServiceImpl implements PriceService {
 		return objPrice;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.myretail.product.price.PriceService#create(com.myretail.product.price.Price)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.myretail.product.price.PriceService#create(com.myretail.product.price
+	 * .Price)
 	 */
 	public Price create(Price pPrice) {
 		priceRepository.save(pPrice);

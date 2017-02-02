@@ -1,7 +1,5 @@
 package com.myretail.product;
 
-import javax.annotation.Resource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,7 @@ import com.myretail.product.exception.PriceServiceException;
 import com.myretail.product.exception.ProductServiceException;
 import com.myretail.product.price.Price;
 import com.myretail.product.price.PriceService;
+import com.myretail.repository.ProductRepository;
 
 /**
  * The Class ProductServiceImpl will create a new product details passed and get

@@ -1,29 +1,14 @@
 package com.myretail;
 
-import static org.hamcrest.core.Is.is;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Before;
-import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.myretail.product.Product;
 import com.myretail.product.ProductService;
-import com.myretail.product.exception.PriceServiceException;
-import com.myretail.product.price.Price;
 
 public class ProductRestControllerTest {
 
@@ -46,38 +31,41 @@ public class ProductRestControllerTest {
 	// =========================================== Get All Users
 	// ==========================================
 
-	@Test
-	public void test_get_all_success() throws Exception {
-
-		Price price1 = new Price();
-		price1.setCurrency_code("USD");
-		price1.value = 9.99;
-		Price price2 = new Price();
-		price2.setCurrency_code("USD");
-		price2.value = 12.99;
-
-		Product product1 = new Product(100000, "Daenerys Targaryen");
-		Product product2 = new Product(200000, "John Snow");
-
-		product1.setPrice(price1);
-		product2.setPrice(price2);
-//
-//		when(productService.getByProductId(100000)).thenReturn(product1);
-//
-//		mockMvc.perform(get("/api/v1/products/100000")).andExpect(status().isOk())
-//				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//				.andExpect(jsonPath("$.id ", is(100000))).andExpect(jsonPath("$.name", is("Daenerys Targaryen")))
-//				.andExpect(jsonPath("$.current_price.currency_code", is("USD"))).andExpect(jsonPath("$.current_price.value", is(9.99)));
-//
-//		when(productService.getByProductId(200000)).thenReturn(product2);
-//		mockMvc.perform(get("/api/v1/products/200000")).andExpect(status().isOk())
-//				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//				.andExpect(jsonPath("$.id ", is(200000))).andExpect(jsonPath("$.name", is("John Snow")))
-//				.andExpect(jsonPath("$.current_price.currency_code", is("USD")))
-//				.andExpect(jsonPath("$.current_price.value", is(12.99)));
-
-//		verifyNoMoreInteractions(productService);
-	}
+	// @Test
+	// public void test_get_all_success() throws Exception {
+	//
+	// Price price1 = new Price();
+	// price1.setCurrency_code("USD");
+	// price1.setValue( 9.99);
+	// Price price2 = new Price();
+	// price2.setCurrency_code("USD");
+	// price2.setValue(12.99);
+	//
+	// Product product1 = new Product(100000, "Daenerys Targaryen");
+	// Product product2 = new Product(200000, "John Snow");
+	//
+	// product1.setPrice(price1);
+	// product2.setPrice(price2);
+	////
+	//// when(productService.getByProductId(100000)).thenReturn(product1);
+	////
+	//// mockMvc.perform(get("/api/v1/products/100000")).andExpect(status().isOk())
+	//// .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+	//// .andExpect(jsonPath("$.id ", is(100000))).andExpect(jsonPath("$.name",
+	// is("Daenerys Targaryen")))
+	//// .andExpect(jsonPath("$.current_price.currency_code",
+	// is("USD"))).andExpect(jsonPath("$.current_price.value", is(9.99)));
+	////
+	//// when(productService.getByProductId(200000)).thenReturn(product2);
+	//// mockMvc.perform(get("/api/v1/products/200000")).andExpect(status().isOk())
+	//// .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+	//// .andExpect(jsonPath("$.id ", is(200000))).andExpect(jsonPath("$.name",
+	// is("John Snow")))
+	//// .andExpect(jsonPath("$.current_price.currency_code", is("USD")))
+	//// .andExpect(jsonPath("$.current_price.value", is(12.99)));
+	//
+	//// verifyNoMoreInteractions(productService);
+	// }
 
 	//
 	// @Test
