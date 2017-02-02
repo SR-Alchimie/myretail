@@ -11,7 +11,7 @@
   
   <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
     <constructor-arg ref="mongo" />
-    <constructor-arg value="databaseName" />
+    <constructor-arg name="databaseName"  value="heroku_d3w815f8"/>
   </bean>
 
   <mongo:repositories base-package="com.myretail.repository" />
