@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.myretail.product.Product;
 import com.myretail.product.exception.PriceServiceException;
+import com.myretail.product.exception.ProductServiceException;
 import com.myretail.product.price.Price;
 
 /**
@@ -17,7 +18,7 @@ import com.myretail.product.price.Price;
 @Component
 public class ValidationUtils {
 
-	public void validateProductDetails(Product product) {
+	public static void validateProductDetails(Product product) {
 
 		// product price can't be null
 		if (product == null) {
@@ -38,7 +39,7 @@ public class ValidationUtils {
 		}
 	}
 
-	public void validatePriceDetails(Price price) {
+	public static void validatePriceDetails(Price price) {
 
 		// product price can't be null
 		if (price == null) {
@@ -53,7 +54,24 @@ public class ValidationUtils {
 	/**
 	 * @param productId
 	 */
-	public void validateProductId(long productId) {
+	public static void validateProductId(String id) {
+
+		if (StringUtils.isEmpty(id)) {
+			throw new ProductServiceException("Product id is required, it can't be null.");
+		}
+		
+		try {
+			
+			validateProductId(Long.parseLong(id));
+		} catch (NumberFormatException e) {
+			throw new ProductServiceException("Product id is required, it can't be null.");
+		}
+	}
+	
+	/**
+	 * @param productId
+	 */
+	public static void validateProductId(long productId) {
 		if (productId <= 0) {
 			throw new PriceServiceException(
 					"Product Id cannot be negative or zero. Product id passed is :-" + productId);
