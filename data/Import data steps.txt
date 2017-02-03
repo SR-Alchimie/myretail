@@ -21,12 +21,12 @@ Please follow the below steps
 2. Go to MANGO_DB_HOME/bin and run the below command.Include the file path in the end for the product.
 
 
-cmd > ./mongoimport -h ds139969.mlab.com:39969 -d myretaildb -c product -u demo -p demo123 --file <file path>
+cmd > ./mongoimport -h localhost:27017 -d myretaildb -c product -u demo -p demo123 --file <file path>
 
 
 3. Run the below command.Include the file path in the end for the price.
 
-cmd > ./mongoimport -h ds139969.mlab.com:39969 -d myretaildb -c price -u demo -p demo123 --file <file path>
+cmd > ./mongoimport -h localhost:27017 -d myretaildb -c price -u demo -p demo123 --file <file path>
 
 
 4. Add the below indexes 
