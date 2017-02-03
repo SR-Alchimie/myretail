@@ -1,10 +1,39 @@
 Please follow the below steps 
 
-1. Go to MANGO_DB_HOME/bin and run the below command.Include the file path in the end for the product
-
-./mongoimport -h ds139969.mlab.com:39969 -d heroku_d3w815f8 -c product -u <userid> -p <password> --file <file path>
+1. connect to mongo client inside mongoldb_home\bin directory and run  the below commands 
 
 
-2. Run the below command.Include the file path in the end for the price
 
-./mongoimport -h ds139969.mlab.com:39969 -d heroku_d3w815f8 -c price -u <userid> -p <password> --file <file path>
+ — create the database
+
+> use myretaildb
+> db.createUser(
+		   {
+	     user: "demo",
+	     pwd: "demo123",
+	     roles: [ "readWrite", "dbAdmin" ]
+  		 }
+	)
+	
+
+
+
+2. Go to MANGO_DB_HOME/bin and run the below command.Include the file path in the end for the product.
+
+
+cmd > ./mongoimport -h ds139969.mlab.com:39969 -d myretaildb -c product -u demo -p demo123 --file <file path>
+
+
+3. Run the below command.Include the file path in the end for the price.
+
+cmd > ./mongoimport -h ds139969.mlab.com:39969 -d myretaildb -c price -u demo -p demo123 --file <file path>
+
+
+4. Add the below indexes 
+
+connect to mongo client inside mongoldb_home\bin directory and run  the below commands 
+
+
+> db.product.createIndex( productId, { unique: true } )
+> db.product.createIndex( { name: "text" } )
+
