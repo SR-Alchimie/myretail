@@ -28,9 +28,7 @@ class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	@Autowired
-	ValidationUtils validation;
-
+	
 	/** The price service. */
 	@Autowired
 	private PriceService priceService;
@@ -45,7 +43,7 @@ class ProductServiceImpl implements ProductService {
 		Price objPrice = null;
 
 		logger.debug("Product id is   " + productId);
-		validation.validateProductId(productId);
+		ValidationUtils.validateProductId(productId);
 		try {
 			if (productRepository != null) {
 				logger.debug("Inside if (productRepository != null)  productRepository " + productRepository);
@@ -90,8 +88,8 @@ class ProductServiceImpl implements ProductService {
 
 		logger.debug("Inside the create method");
 
-		validation.validateProductDetails(product);
-		validation.validatePriceDetails(product.getPrice());
+		ValidationUtils.validateProductDetails(product);
+		ValidationUtils.validatePriceDetails(product.getPrice());
 
 		logger.debug("Product details to create - " + product.toString());
 
@@ -124,7 +122,7 @@ class ProductServiceImpl implements ProductService {
 		}
 		return product;
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 

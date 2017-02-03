@@ -8,7 +8,6 @@
 
 package com.myretail;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myretail.common.MyRetailErrorResponse;
+import com.myretail.common.ValidationUtils;
 import com.myretail.product.Product;
 import com.myretail.product.ProductService;
 import com.myretail.product.exception.PriceServiceException;
@@ -55,7 +55,7 @@ public class ProductRestController {
 	Product getProduct(@PathVariable String id) {
 		Product objProduct = null;
 		logger.debug("get product details for the product id - " + id);
-		validateProductId(id);
+		ValidationUtils.validateProductId(id);
 		objProduct = productService.getByProductId(Long.parseLong(id));
 		return objProduct;
 	}
@@ -63,21 +63,12 @@ public class ProductRestController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	Product create(@RequestBody Product pProduct) {
 
-		validateProductId(String.valueOf(pProduct.getProductId()));
+		ValidationUtils.validateProductId(String.valueOf(pProduct.getProductId()));
 		Product objProduct = productService.create(pProduct);
 		return objProduct;
 	}
 
-	private void validateProductId(String id) {
-
-		if (StringUtils.isEmpty(id)) {
-			throw new ProductServiceException("Product id is required, it can't be null.");
-		}
-		if (!StringUtils.isNumeric(id)) {
-			throw new ProductServiceException("Product id has to be a a numeric value.");
-		}
-
-	}
+	
 
 	@ExceptionHandler({ ProductServiceException.class, PriceServiceException.class })
 	public ResponseEntity<MyRetailErrorResponse> exceptionHandler(Exception ex) {
