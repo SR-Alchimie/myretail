@@ -34,6 +34,6 @@ cmd > ./mongoimport -h localhost:27017 -d myretaildb -c price -u demo -p demo123
 connect to mongo client inside mongoldb_home\bin directory and run  the below commands 
 
 
-> db.product.createIndex( productId, { unique: true } )
+> db.product.createIndex( {productId:1}, { unique: true } )
 > db.product.createIndex( { name: "text" } )
 
