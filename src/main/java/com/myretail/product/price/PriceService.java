@@ -24,4 +24,13 @@ public interface PriceService {
 	 */
 	public Price create(Price pPrice);
 
+	/**
+	 * Updates the.
+	 *
+	 * @param pPrice
+	 *            the price
+	 * @return the price
+	 */
+	public Price update(Price pPrice);
+
 }

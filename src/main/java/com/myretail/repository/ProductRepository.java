@@ -12,4 +12,5 @@ public interface ProductRepository extends MongoRepository<Product, String> {
 
 	public List<Product> findByName(String name);
 
+	public Product findByProductIdAndName(long productId, String name);
 }
