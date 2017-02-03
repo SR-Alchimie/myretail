@@ -1,0 +1,10 @@
+Please follow the below steps 
+
+1. Go to MANGO_DB_HOME/bin and run the below command.Include the file path in the end for the product
+
+./mongoimport -h ds139969.mlab.com:39969 -d heroku_d3w815f8 -c product -u <userid> -p <password> --file <file path>
+
+
+2. Run the below command.Include the file path in the end for the price
+
+./mongoimport -h ds139969.mlab.com:39969 -d heroku_d3w815f8 -c price -u <userid> -p <password> --file <file path>
