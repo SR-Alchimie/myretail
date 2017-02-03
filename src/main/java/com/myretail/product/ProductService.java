@@ -24,6 +24,19 @@ public interface ProductService {
 	 */
 	public Product create(Product product);
 
+	
+
+	/**
+	 * Creates the.
+	 *
+	 * @param product
+	 *            the product
+	 * @return the product
+	 */
+	public Product update(Product product);
+
+	
+	
 	/**
 	 * Delete.
 	 *
@@ -33,12 +46,5 @@ public interface ProductService {
 	 */
 	public Product delete(final long productId);
 
-	/**
-	 * Update.
-	 *
-	 * @param product
-	 *            the product
-	 * @return the product
-	 */
-	public Product update(Product product);
+	
 }

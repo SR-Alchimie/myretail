@@ -62,6 +62,18 @@ public class PriceServiceImpl implements PriceService {
 		return pPrice;
 	}
 
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.myretail.product.price.PriceService#create(com.myretail.product.price
+	 * .Price)
+	 */
+	public Price update(Price pPrice) {
+		priceRepository.save(pPrice);
+		return pPrice;
+	}
 	/**
 	 * Gets the currency code based on local.
 	 *

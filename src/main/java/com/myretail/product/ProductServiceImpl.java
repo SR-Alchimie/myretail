@@ -130,7 +130,40 @@ class ProductServiceImpl implements ProductService {
 	 * com.myretail.product.ProductService#update(com.myretail.product.Product)
 	 */
 	public Product update(Product product) {
-		return null;
+		
+		
+		ValidationUtils.validateProductDetails(product);
+		ValidationUtils.validatePriceDetails(product.getPrice());
+
+		logger.debug("Product details to update - " + product.toString());
+
+		// check the db if the product name already exists, if no go ahead to
+		// save the product details
+		Product objProduct = productRepository.findByProductIdAndName(product.productId, product.getName());
+		
+		if (objProduct == null) {
+			
+			throw new ProductServiceException("Product not found for price update  :- " + product.getName());
+		}
+		if( product.getPrice() != null && objProduct.getPrice() != null  && (product.getPrice().getValue() == objProduct.getPrice().getValue()))
+		{
+			throw new PriceServiceException("Product's new price and ald price are same  :- " + product.getName());
+		}
+			
+				// save the product DB, while saving db has the unique key on
+				// productId.
+			//	productRepository.save(product);
+				// save the product and price details in DB
+				try {
+					product.getPrice().setProductId(product.getProductId());
+					priceService.update(product.getPrice());
+				} catch (Exception excePrice) {
+
+					throw new PriceServiceException(
+							"Error while updating the price information for :-" + product.getProductId());
+				}
+		return product;
+		
 	}
 
 	/*

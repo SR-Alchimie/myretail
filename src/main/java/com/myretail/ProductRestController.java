@@ -69,6 +69,21 @@ public class ProductRestController {
 	}
 
 	
+	/**
+	 * Gets the product.
+	 *
+	 * @param id
+	 *            the id
+	 * @return the product
+	 */
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	Product updateProduct(@RequestBody Product pProduct) {
+		
+		ValidationUtils.validateProductId(String.valueOf(pProduct.getProductId()));
+		Product objProduct = productService.update(pProduct);
+		return objProduct;
+	}
+
 
 	@ExceptionHandler({ ProductServiceException.class, PriceServiceException.class })
 	public ResponseEntity<MyRetailErrorResponse> exceptionHandler(Exception ex) {
