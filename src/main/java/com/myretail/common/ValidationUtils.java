@@ -47,7 +47,7 @@ public class ValidationUtils {
 		}
 		// check if the price is less then zero.
 		if (price.getValue() < 0) {
-			throw new PriceServiceException("Price cannot be negative for the product.");
+			throw new PriceServiceException("Price cannot be negative for the product. Price passed is " + price.getValue() );
 		}
 	}
 
@@ -64,7 +64,7 @@ public class ValidationUtils {
 			
 			validateProductId(Long.parseLong(id));
 		} catch (NumberFormatException e) {
-			throw new ProductServiceException("Product id is required, it can't be null.");
+			throw new ProductServiceException("Product id is has to be a numeric :- " + id);
 		}
 	}
 	
