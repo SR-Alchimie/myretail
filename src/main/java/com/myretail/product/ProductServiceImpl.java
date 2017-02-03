@@ -28,7 +28,6 @@ class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	
 	/** The price service. */
 	@Autowired
 	private PriceService priceService;
@@ -122,7 +121,7 @@ class ProductServiceImpl implements ProductService {
 		}
 		return product;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -130,8 +129,7 @@ class ProductServiceImpl implements ProductService {
 	 * com.myretail.product.ProductService#update(com.myretail.product.Product)
 	 */
 	public Product update(Product product) {
-		
-		
+
 		ValidationUtils.validateProductDetails(product);
 		ValidationUtils.validatePriceDetails(product.getPrice());
 
@@ -140,30 +138,36 @@ class ProductServiceImpl implements ProductService {
 		// check the db if the product name already exists, if no go ahead to
 		// save the product details
 		Product objProduct = productRepository.findByProductIdAndName(product.productId, product.getName());
-		
+
 		if (objProduct == null) {
-			
+
 			throw new ProductServiceException("Product not found for price update  :- " + product.getName());
 		}
-		if( product.getPrice() != null && objProduct.getPrice() != null  && (product.getPrice().getValue() == objProduct.getPrice().getValue()))
-		{
+		if (product.getPrice() != null && objProduct.getPrice() != null
+				&& (product.getPrice().getValue() == objProduct.getPrice().getValue())) {
 			throw new PriceServiceException("Product's new price and ald price are same  :- " + product.getName());
 		}
-			
-				// save the product DB, while saving db has the unique key on
-				// productId.
-			//	productRepository.save(product);
-				// save the product and price details in DB
-				try {
-					product.getPrice().setProductId(product.getProductId());
-					priceService.update(product.getPrice());
-				} catch (Exception excePrice) {
 
-					throw new PriceServiceException(
-							"Error while updating the price information for :-" + product.getProductId());
-				}
+		// save the product DB, while saving db has the unique key on
+		// productId.
+		// productRepository.save(product);
+		// save the product and price details in DB
+		try {
+
+			Price objPrice = priceService.getPrice(objProduct.getProductId());
+			if (objPrice != null) {
+				logger.debug("Inside if (objPrice != null) - price " + objPrice.toString());
+				objProduct.setPrice(objPrice);
+				objProduct.getPrice().setValue(product.getPrice().getValue());
+				priceService.update(objProduct.getPrice());
+			}
+		} catch (Exception excePrice) {
+
+			throw new PriceServiceException(
+					"Error while updating the price information for :-" + product.getProductId());
+		}
 		return product;
-		
+
 	}
 
 	/*
