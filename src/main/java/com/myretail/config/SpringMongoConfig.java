@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 
-@Configuration
+@Configuration 
 @EnableMongoRepositories(basePackages = "com.myretail.repository")
 public class SpringMongoConfig extends AbstractMongoConfiguration {
 

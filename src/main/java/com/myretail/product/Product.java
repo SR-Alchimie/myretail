@@ -2,7 +2,6 @@ package com.myretail.product;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -10,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.myretail.product.price.Price;
 
-@Document(collection = "product")
+@Document(collection = "products")
 @JsonPropertyOrder({ "id", "name" })
 public class Product {
 
