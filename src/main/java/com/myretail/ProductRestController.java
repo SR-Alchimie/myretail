@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,7 +52,7 @@ public class ProductRestController {
 	 *            the id
 	 * @return the product
 	 */
-	@RequestMapping(method = RequestMethod.GET, value="/{id}")
+	@RequestMapping(method = RequestMethod.GET, value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	Product getProduct(@PathVariable String id) {
 		Product objProduct = null;
 		logger.debug("get product details for the product id - " + id);
@@ -60,7 +61,7 @@ public class ProductRestController {
 		return objProduct;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/")
+	@RequestMapping(method = RequestMethod.POST, value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	Product create(@RequestBody Product pProduct) {
 
 		ValidationUtils.validateProductId(String.valueOf(pProduct.getProductId()));
@@ -76,7 +77,7 @@ public class ProductRestController {
 	 *            the id
 	 * @return the product
 	 */
-	@RequestMapping(method = RequestMethod.PUT, value="/{id}")
+	@RequestMapping(method = RequestMethod.PUT, value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	Product updateProduct(@PathVariable String id, @RequestBody Product pProduct) {
 		
 		ValidationUtils.validateProductId(String.valueOf(pProduct.getProductId()));
